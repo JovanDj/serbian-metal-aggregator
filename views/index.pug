@@ -1,0 +1,21 @@
+extends layout
+
+block content
+
+  .container.text-body
+
+
+    h1 Serbian Metal Aggregator
+    hr
+
+    each post in posts
+      .post.py-4
+        h2
+          a(href=post.link)= post.title
+        .source.d-flex.gap-1.align-items-center
+          img(class="img-fluid bg-white" width=32 height=32  src=post.publisher['image'] ? post.publisher.image.url : "")
+          h3
+            a(class="link-primary" href=post.publisher.link)= post.publisher.title
+        p= post.pubDate
+        articicle !{ post.content }
+      hr
